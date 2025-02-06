@@ -1,1 +1,1 @@
-Deployement Link :- https://wanderlust-eaj1.onrender.com
+Deployment Link :- https://wanderlust-eaj1.onrender.com
