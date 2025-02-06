@@ -12,6 +12,29 @@ module.exports.renderNewForm = (req,res)=>{
 
 };
 
+
+module.exports.search = async(req,res)=>{
+    // Get the search query from the request (e.g., ?search=query)
+    let searchQuery = req.query.query ;  // Default to empty string if no search is provided!
+console.log(searchQuery);
+    if(!searchQuery){
+       return res.redirect("/listings");
+    }
+
+    // Use the search query to filter the listings, assuming you want to search by title or name
+    const allListings = await Listing.find({
+        title: { $regex: searchQuery, $options: 'i' } // Case-insensitive search
+    });
+
+    if(allListings.length === 1){
+       return res.redirect(`/listings/${allListings[0]._id}`);
+    }
+
+    // Log the filtered listings to the console
+    console.log(allListings);
+    res.render('listings/search.ejs', { searchQuery ,allListings });
+};
+
 module.exports.showListing =async(req,res)=>{
     let {id } = req.params;
     const listing= await Listing.findById(id).populate({path: "reviews", populate:{path: "author"},}).populate("owner");

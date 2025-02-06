@@ -17,9 +17,13 @@ router.get("/",wrapAsync(listingController.index));
 
 //New Route
 router.get("/new" , isLoggedIn, listingController.renderNewForm);
+router.get("/search",wrapAsync(listingController.search));
+
 
 //SHOW ROUTE
 router.get("/:id", wrapAsync(listingController.showListing));
+
+
 
 
 //Create route
