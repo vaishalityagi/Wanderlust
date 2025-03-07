@@ -13,7 +13,7 @@ main().then(()=>{
 });
 
 const initDB = async ()=>{
-    await Listing.deleteMany({});
+    await Listing.deleteMany({}); //clean the database
     initData.data =  initData.data.map((obj)=>({
         ...obj,
         owner:"677c8abbee73ce32f6b63f59",
