@@ -12,6 +12,24 @@ const {storage} = require("../cloudConfig.js");
 const upload = multer({ storage });
 
 
+// router.post("/additem", async (req, res) => {
+//     if (!req.session.cart) req.session.cart = [];
+    
+//     const { listingId } = req.body;
+//     const listing = await Listing.findById(listingId);
+
+//     if (listing) {
+//         req.session.cart.push(listing);
+//         res.json({ success: true, cart: req.session.cart });
+//     } else {
+//         res.json({ success: false, message: "Listing not found" });
+//     }
+// });
+
+// router.get("/", (req, res) => {
+//     res.render("listings/cart", { cart: req.session.cart || [] });
+// });
+
 //Index ROUTE
 router.get("/",wrapAsync(listingController.index));
 

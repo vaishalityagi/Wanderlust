@@ -66,10 +66,9 @@ module.exports.createListing=async(req,res,next)=>{
     // console.log(listing);
     req.flash("success","New listing created");
     res.redirect("/listings");
-
-
-
 };
+
+
 
 module.exports.renderEditForm =async(req,res)=>{
     let {id } = req.params;
@@ -80,7 +79,6 @@ module.exports.renderEditForm =async(req,res)=>{
 
     }
     res.render("listings/edit.ejs",{listing});
-
 };
 
 module.exports.updateListing =async(req,res)=>{

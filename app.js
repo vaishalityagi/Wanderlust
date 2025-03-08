@@ -42,7 +42,7 @@ main().then(()=>{
     console.log(err);
 });
 async function main() {
-    await mongoose.connect(dbUrl,);
+    await mongoose.connect(dbUrl);
   };
 app.set("view engine","ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -96,8 +96,6 @@ const sessionOptions = {
     },
 };
 
-
-
 app.use(session(sessionOptions));
 app.use(flash());
 
@@ -114,7 +112,7 @@ app.use((req,res,next)=>{
     // console.log(res.locals);
     res.locals.error =  req.flash("error");
     // console.log(req.user);
-    res.locals.currUser = req.user;
+    res.locals.currUser = req.user;  //current user
     next();
 });
 

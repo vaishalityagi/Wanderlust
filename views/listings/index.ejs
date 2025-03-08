@@ -112,6 +112,32 @@
 
 
         });
+
+
+//     document.addEventListener("DOMContentLoaded", () => {
+//     const addToCartButtons = document.querySelectorAll(".add-to-cart");
+
+//     addToCartButtons.forEach(button => {
+//         button.addEventListener("click", async (event) => {
+//             const listingId = event.target.getAttribute("data-id");
+
+//             const response = await fetch("/cart/add", {
+//                 method: "POST",
+//                 headers: {
+//                     "Content-Type": "application/json"
+//                 },
+//                 body: JSON.stringify({ listingId })
+//             });
+
+//             const result = await response.json();
+//             if (result.success) {
+//                 alert("Added to cart!");
+//             } else {
+//                 alert("Error adding to cart");
+//             }
+//         });
+//     });
+// });
        </script>
 
       
@@ -131,6 +157,8 @@
             &#8377; <%= listing.price.toLocaleString("en-IN") %>/night
             <i class="tax-info"> &nbsp; &nbsp;+18% GST</i>
         </p>
+        <!-- <button class="btn btn-primary add-to-cart" data-id="<%= listing._id %>">Add to Cart</button> -->
+
         </div>
       </div>
     </a>
