@@ -35,7 +35,7 @@ router.get("/",wrapAsync(listingController.index));
 
 //New Route
 router.get("/new" , isLoggedIn, listingController.renderNewForm);
-router.get("/search",wrapAsync(listingController.search));
+router.get("/search", wrapAsync(listingController.search));
 
 
 //SHOW ROUTE
